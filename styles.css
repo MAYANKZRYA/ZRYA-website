@@ -10,12 +10,14 @@
   --sans:'Inter',system-ui,sans-serif;
   --ease:cubic-bezier(.16,.84,.44,1);
 }
-/* HOMEPAGE — light ground, colour lives in the graphics */
-/* HOME — white ground, colour lives in the buttons / highlights / hovers */
+/* HOME — black ground with a teal glow behind the focus cover */
 body[data-page="home"]{
-  --base:#ffffff; --base2:#F4FAF8;
-  --text:#1C3334; --mut:#6E8A88; --line:rgba(28,51,52,.2);
-  --gold:#116466; --warm:#116466;
+  --base:#0A0708; --base2:#141018;
+  --text:#ECE6E8; --mut:#8FAFAB; --line:rgba(236,230,232,.16);
+  --acc:#3FB8B0; --gold:#3FB8B0; --warm:#116466;
+  background:
+    radial-gradient(38% 34% at 50% 47%, rgba(17,100,102,.65), rgba(17,100,102,0) 66%),
+    #0A0708;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -52,39 +54,35 @@ body[data-page="art"]{
    #0A0708;
   background-attachment:fixed}
 body[data-page="home"] .atmos{display:none}
-body[data-page="home"] #loader{background:#fff}
-body[data-page="home"] #loader .llogo{filter:invert(1) hue-rotate(180deg) saturate(0) brightness(.25)}
+body[data-page="home"] .neon{display:none}
+body[data-page="home"] #loader{background:#0A0708}
 body[data-page="home"] nav{mix-blend-mode:normal}
-body[data-page="home"] nav .navlogo{filter:brightness(0) saturate(1)}
-body[data-page="home"]::before{opacity:.055;mix-blend-mode:multiply}
+body[data-page="home"]::before{opacity:.05;mix-blend-mode:overlay}
 /* keep the white-page UI legible over the graphics */
 body[data-page="home"] .navlink{color:var(--text);opacity:1;font-weight:500}
 body[data-page="home"] .nowview .nv-title{color:var(--text);font-weight:400}
 body[data-page="home"] .nowview .nv-cta{color:var(--gold);font-weight:500}
 body[data-page="home"] .scrollcue{color:var(--mut)}
-body[data-page="home"] .bfocal{box-shadow:0 34px 80px rgba(28,51,52,.30)}
+/* teal glow behind the focus cover */
+body[data-page="home"] .bfocal{box-shadow:0 0 78px rgba(17,100,102,.6), 0 40px 90px rgba(0,0,0,.6)}
 body[data-page="home"] .bstrip{filter:none}
 body[data-page="home"] .hero::after{display:none}
-/* colour pops — buttons, highlights, hovers */
-body[data-page="home"] .ethosbtn{border-color:var(--teal);color:var(--teal)}
-body[data-page="home"] .ethosbtn::before{background:var(--teal)}
-body[data-page="home"] .ethosbtn:hover{color:#fff;border-color:var(--teal)}
-body[data-page="home"] .nowview .nv-cta{color:var(--teal)}
-body[data-page="home"] .nowview .nv-cta::after{background:var(--peach)}
-body[data-page="home"] .nowview .nv-cta:hover{color:var(--wine)}
-body[data-page="home"] .navlink::after{background:var(--teal)}
-body[data-page="home"] .navlink:hover{color:var(--teal)}
-body[data-page="home"] ::selection{background:var(--peach);color:var(--wine)}
-/* highlight = peach marker swipe, not just a darker colour */
-body[data-page="home"] .statement em,body[data-page="home"] .philo .line em{
-  color:var(--wine);
-  background:linear-gradient(180deg,transparent 58%,rgba(255,203,154,.9) 58%,rgba(217,176,140,.9) 100%);
-  padding:0 .08em;border-radius:2px}
-body[data-page="home"] .eyebrow{color:var(--teal)}
-body[data-page="home"] .eyebrow::before{background:var(--teal)}
-/* secondary display lines read as strong teal, not dull grey */
+/* colour accents — teal on black */
+body[data-page="home"] .ethosbtn{border-color:var(--acc);color:var(--acc)}
+body[data-page="home"] .ethosbtn::before{background:var(--acc)}
+body[data-page="home"] .ethosbtn:hover{color:#0A0708;border-color:var(--acc)}
+body[data-page="home"] .nowview .nv-title{color:var(--text)}
+body[data-page="home"] .nowview .nv-cta{color:var(--acc)}
+body[data-page="home"] .nowview .nv-cta::after{background:var(--acc)}
+body[data-page="home"] .nowview .nv-cta:hover{color:#fff}
+body[data-page="home"] .navlink::after{background:var(--acc)}
+body[data-page="home"] .navlink:hover{color:var(--acc)}
+body[data-page="home"] ::selection{background:var(--acc);color:#0A0708}
+body[data-page="home"] .statement em,body[data-page="home"] .philo .line em{color:var(--acc)}
+body[data-page="home"] .eyebrow{color:var(--acc)}
+body[data-page="home"] .eyebrow::before{background:var(--acc)}
 body[data-page="home"] .statement .mut,
-body[data-page="home"] .philo .line.mut{color:var(--teal)}
+body[data-page="home"] .philo .line.mut{color:var(--acc)}
 
 /* HOME — quiet ambient tint; the colour belongs to the UI, not the page */
 .neon{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -106,6 +104,10 @@ body[data-page="home"] .philo .line.mut{color:var(--teal)}
 #loader .lbox{display:flex;flex-direction:column;align-items:center;gap:clamp(20px,4vh,34px)}
 #loader .llogo{width:clamp(180px,34vw,360px);opacity:0;animation:fadein 1.1s var(--ease) both}
 #loader .lp{font-family:var(--sans);font-weight:300;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
+/* ART & WORK loader: black ground, white logo, teal loading text */
+body[data-page="art"] #loader,body[data-page="work"] #loader{background:#000}
+body[data-page="art"] #loader .llogo,body[data-page="work"] #loader .llogo{filter:brightness(0) invert(1)}
+body[data-page="art"] #loader .lp,body[data-page="work"] #loader .lp{color:#1F9B9C}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px clamp(20px,5vw,60px);font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase}

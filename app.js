@@ -262,10 +262,13 @@ function initField(){
   const stage = document.getElementById('field');
   if(!stage) return;
   const nv = document.getElementById('nowview');
-  const N = ART.length, TAU = Math.PI*2, STEP = TAU/N, K = 8;    // K = strips per cover
+  // homepage drum shows a curated subset (not the whole ART list), in this order
+  const RING = ['paheli','gehna','jaayaz','udd-jaa','mai-qala','rakhna-jo-chaha','deewani-mastani','boonden','kyun-soya-jaye-na']
+    .map(s=>ART.find(a=>a.slug===s)).filter(Boolean);
+  const N = RING.length, TAU = Math.PI*2, STEP = TAU/N, K = 8;    // K = strips per cover
 
   const band = document.createElement('div'); band.className='band3d'; stage.appendChild(band);
-  const covers = ART.map((a,i)=>({a, theta:i*STEP}));
+  const covers = RING.map((a,i)=>({a, theta:i*STEP}));
 
   // focus cover — a child of the drum, at its centre axis, so it depth-sorts with the strips
   const focalEl = document.createElement('a'); focalEl.className='bfocal'; focalEl.target='_blank'; focalEl.rel='noopener';
@@ -294,9 +297,9 @@ function initField(){
     });
   }
   function layout(){
-    tileSize  = Math.max(58, Math.min(109, innerWidth*0.0595));                       // ring covers (15% smaller again)
-    focalSize = Math.max(264, Math.min(506, Math.min(innerWidth*0.2875, innerHeight*0.46))); // focus cover 15% bigger
-    R = Math.min(Math.max(tileSize*N/(TAU*0.46), innerWidth*0.27), innerWidth*0.40);   // drum radius (capped)
+    tileSize  = Math.max(46, Math.min(87, innerWidth*0.0476));                        // ring covers (20% smaller)
+    focalSize = Math.max(264, Math.min(506, Math.min(innerWidth*0.2875, innerHeight*0.46))); // focus cover unchanged
+    R = Math.min(Math.max(tileSize*N/(TAU*0.5), innerWidth*0.21), innerWidth*0.33);    // drum radius (narrower ring)
     cx = innerWidth/2; cy = innerHeight*0.49;
     stage.style.perspective = Math.round(R*2.2)+'px';
     band.style.left = cx+'px'; band.style.top = cy+'px';
