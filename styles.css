@@ -178,8 +178,9 @@ section{padding:clamp(90px,14vh,180px) clamp(20px,7vw,110px);position:relative}
 .bstrip{position:absolute;left:0;top:0;background-repeat:no-repeat;filter:brightness(.86);backface-visibility:visible;will-change:transform}
 .bfocal{position:absolute;left:0;top:0;border-radius:3px;overflow:hidden;box-shadow:0 55px 120px rgba(0,0,0,.72);backface-visibility:hidden;will-change:transform}
 .bfocal img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;user-select:none}
-.nowview{position:absolute;top:clamp(78px,11vh,104px);left:clamp(20px,5vw,60px);z-index:8;pointer-events:none;max-width:60vw}
-.nowview .nv-title{display:block;font-style:italic;font-size:clamp(20px,2.4vw,30px);color:var(--gold);line-height:1.15}
+.nowview{position:absolute;top:clamp(78px,11vh,104px);left:clamp(20px,5vw,60px);z-index:8;pointer-events:none;max-width:min(60vw,420px);text-align:left}
+/* reserve 2 lines so the Listen button below never shifts as titles change length */
+.nowview .nv-title{display:block;font-style:italic;font-size:clamp(20px,2.4vw,30px);color:var(--gold);line-height:1.2;min-height:2.4em}
 .nowview .nv-cta{display:inline-block;pointer-events:auto;position:relative;font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);margin-top:10px;min-height:14px;transition:color .3s}
 .nowview .nv-cta::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:0;background:var(--warm);transition:width .45s var(--ease)}
 .nowview .nv-cta:hover{color:var(--warm)}
@@ -312,3 +313,27 @@ section{padding:clamp(90px,14vh,180px) clamp(20px,7vw,110px);position:relative}
 .clink:hover::after{width:100%}
 
 footer{padding:38px clamp(20px,7vw,110px);font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ================= MOBILE ================= */
+@media(max-width:640px){
+  /* stack each list row: title, then year + credit beneath it (no more one-line overflow) */
+  .row{grid-template-columns:1fr;gap:6px;align-items:start;padding:18px 2px}
+  .row .rmeta{text-align:left;white-space:normal;line-height:1.7;margin-top:2px}
+  .row .rmeta .yr{display:block}          /* year on its own line, credit beneath it */
+  .row:hover{padding-left:0}                    /* no slide on touch */
+  .row .rt{font-size:clamp(22px,7vw,30px)}
+
+  /* about/contact drawers: clamp to viewport + scroll internally so the portrait is reachable */
+  .drawer{align-items:flex-start;height:100svh;min-height:0;-webkit-overflow-scrolling:touch}
+  .dwrap{padding:96px clamp(20px,7vw,40px) 64px}
+  .about-grid{gap:28px}
+  .about-grid .small{max-width:none}
+  .portrait{aspect-ratio:4/5;width:min(100%,300px);margin:0 auto}
+  .dclose{position:fixed;top:20px;right:20px}
+
+  .contact-inner .clinks{max-width:none}
+  .clink{font-size:clamp(19px,6vw,26px)}
+}
+
+/* stop any stray horizontal overflow that forces mobile zoom-out */
+html,body{max-width:100%}
