@@ -27,9 +27,14 @@ const ART = [
 
 /* WORK — film / OTT / brand credits, newest first. video (id) -> hover video; audio (slug) -> hover cover. */
 const WORK = [
+  {t:"Mann Ki Titliyaan", year:"2026", credit:"Music Producer", desc:"Mercy · Sonu Nigam", id:"Uvsu-ifkFDk"},
+  {t:"Yaadon Ke Sahaare Chal", year:"2026", credit:"Music Producer", desc:"Mercy · Sonu Nigam", id:"wAraOsjRTHE"},
   {t:"Raasta", slug:"raasta", year:"2026", credit:"Music Producer", desc:'From "Matka King"', link:"https://open.spotify.com/track/3AE5vwkv7aoqda3js5Wu8N"},
   {t:"Garaariyan", slug:"garaariyan", year:"2026", credit:"Music Producer", desc:"Single", link:"https://open.spotify.com/track/7LwTWfTxOmtmq4cAVE0eKg"},
   {t:"Kaise Bataye", year:"2026", credit:"Music Producer", desc:"Varun Dagar", id:"dBd0--cX09I"},
+  {t:"Ghar Jaisa Pyaar", year:"2025", credit:"Mix Engineer", desc:"Quicklly", id:"k9Po_Wv7TMU"},
+  {t:"Venky's Chicken", year:"2025", credit:"Mix Engineer & Producer", desc:"Venky's", id:"VZWXD1MtNi0"},
+  {t:"Sahib Sahiba — Chaap Tilak", year:"2025", credit:"Music Producer", desc:"The Wedding Filmer", id:"UPnh2ymJjTg"},
   {t:"Panaah", slug:"panaah", year:"2025", credit:"Composer & Music Producer", desc:"TheM", link:"https://open.spotify.com/album/1wh9eBuOZCz20LrYwGfSA7"},
   {t:"Lakh Shukrane", year:"2025", credit:"Composer & Music Producer", desc:"The Wedding Filmer", id:"9iLYCwrv6eU"},
   {t:"Tu Mila", year:"2025", credit:"Composer & Music Producer", desc:"The Wedding Filmer", id:"G_ny4r9-WQs"},
@@ -52,12 +57,24 @@ const WORK = [
   {t:"Nachdi Phirey", year:"2022", credit:"Music Producer", desc:"The Wedding Filmer", id:"jh-wxrgHM1M"},
   {t:"Beqaraar", year:"2022", credit:"Music Producer", desc:"Looop Lapeta · Zee", id:"sLK07viMibY"},
   {t:"Mangalyam", year:"2021", credit:"Music Producer", desc:"The Wedding Filmer", id:"4Zs-VNHVmEQ"},
+  {t:"Siyahi", year:"2021", credit:"Music Producer", id:"Yd-15W21MNg"},
   {t:"Guncha Koi", year:"2021", credit:"Music Producer", desc:"Umber Jafri", id:"-peiuSBwmKA"},
   {t:"Faraar Kab Tak", year:"2021", credit:"Composer & Music Producer", desc:"EPIC", id:"lAn8XgwDpzc"},
   {t:"Ishara Brand Anthem", year:"2021", credit:"Music Producer", desc:"EPIC", id:"sJg-TMomfZM"},
   {t:"Suraj Pe Mangal Bhari", year:"2020", credit:"Audio Engineer & Producer", desc:"Zee Studios", id:"hs2MPHRkP9A"},
+  {t:"Mannphodganj Ki Binny", year:"2020", credit:"Composer & Music Producer", desc:"MX Player", id:"JifIwzDB28U"},
+  {t:"Aashiyana", year:"2020", credit:"Music Producer", desc:"The Wedding Filmer", id:"VC5xOFrAgwA"},
+  {t:"Hum Tum And Them", year:"2019", credit:"Music Producer", desc:"ZEE5", id:"5T84u3sgrgk"},
   {t:"Bhram", year:"2019", credit:"Music Producer", desc:"ZEE5", id:"zhavQiEIvUc"},
   {t:"The Zoya Factor", year:"2019", credit:"Music Producer", desc:"Star Studios", id:"tz9TN7ixPW0"},
+  {t:"Kambal Kambal", year:"2019", credit:"Music Producer", id:"VH17uDUknTk"},
+  {t:"Safar", year:"2019", credit:"Music Producer", id:"Zv8CiNYwRvs"},
+  {t:"Tu Chala Kahan", year:"2019", credit:"Music Producer", id:"xZxKzc_a5mk"},
+  {t:"Ye Pal", year:"2019", credit:"Music Producer", id:"hqDccLZRvpI"},
+  {t:"Tu Chala Kahan (Duet)", year:"2019", credit:"Music Producer", id:"jj8xPaVVxfc"},
+  {t:"Goa Pan Masala", year:"2019", credit:"Music Producer", desc:"Sanjay Dutt · TVC", id:"ONQJdYCfODw"},
+  {t:"Kuch Is Tarah", year:"2019", credit:"Music Producer", desc:"feat. Joell & Madhubanti Bagchi", id:"2K84KB2fAGY"},
+  {t:"Sarova — The ExperienCity", year:"2019", credit:"Music Producer", desc:"Sarova", id:"JGhL_nDr9EM"},
 ];
 
 const YT = id => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&playsinline=1&rel=0`;
