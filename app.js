@@ -1,46 +1,63 @@
 /* ============ DATA ============ */
 const SP = "https://open.spotify.com/artist/3rXwnEWqZbpPVPL1mAKot7";
 
-/* ART — ZRYA's discography (Spotify verified). cover -> art/<slug>.jpg
-   link = the specific song/release. id (where present) = YouTube for inline hover-play. */
+/* ART — ZRYA's own releases, newest first. cover -> art/<slug>.jpg ; link = the release. */
 const ART = [
-  {t:"Paheli", slug:"paheli", year:"2026", credit:"Album", link:"https://open.spotify.com/album/5EPJ6k9PVOVD7M5Y2gldZw"},
-  {t:"Mai Qala", slug:"mai-qala", year:"2026", credit:"EP", link:"https://open.spotify.com/album/1G6SSp3amuZJq2EiX75zox"},
-  {t:"Gehna", slug:"gehna", year:"2026", credit:"Album", link:"https://open.spotify.com/album/74QAHkEmX1PlmNI0erVB4Q"},
-  {t:"Jaayaz", slug:"jaayaz", year:"2026", credit:"Album", link:"https://open.spotify.com/album/5XSf0rHHmTn6Y849TQR6BD"},
-  {t:"Udd Jaa", slug:"udd-jaa", year:"2026", credit:"Single", link:"https://open.spotify.com/album/50D3Ny54bQ4CKPU95X9mkS"},
-  {t:"Cutputli", slug:"cutputli", year:"2025", credit:"w/ Prabhanjan, DOST", link:"https://open.spotify.com/album/4m1UVbAbkp8slVp22aErGX", id:"EJUGO6xq7aM"},
-  {t:"Rakhna Jo Chaha", slug:"rakhna-jo-chaha", year:"2025", credit:"w/ Riya Goley", link:"https://open.spotify.com/album/0oR8fVM3fllHhycajj0FUX"},
-  {t:"Panaah", slug:"panaah", year:"2025", credit:"Single", link:"https://open.spotify.com/album/1wh9eBuOZCz20LrYwGfSA7"},
-  {t:"Take Me Back Home", slug:"take-me-back-home", year:"2025", credit:"w/ DOST", link:"https://open.spotify.com/track/5kttGIFqZPBFDqM7ph8Rik"},
-  {t:"Boonden", slug:"boonden", year:"2024", credit:"w/ Varun Dagar", link:"https://music.apple.com/in/album/boonden/6789449682", id:"qrj16aKZuMA"},
-  {t:"Kyun Soya Jaye Na", slug:"kyun-soya-jaye-na", year:"2023", credit:"Prabhanjan × Riya Goley", link:"https://open.spotify.com/track/5Anc4EtMr2NjLvPgBHioQh", id:"2EK1IBIRiKE"},
+  {t:"Paheli", slug:"paheli", year:"2026", credit:"Composer, Music Producer, Mix Engineer", link:"https://open.spotify.com/album/5EPJ6k9PVOVD7M5Y2gldZw"},
+  {t:"Gehna", slug:"gehna", year:"2026", credit:"Composer, Music Producer, Mix Engineer", link:"https://open.spotify.com/album/74QAHkEmX1PlmNI0erVB4Q"},
+  {t:"Udd Jaa", slug:"udd-jaa", year:"2026", credit:"Composer, Music Producer, Mix Engineer", link:"https://open.spotify.com/album/50D3Ny54bQ4CKPU95X9mkS"},
+  {t:"Jaayaz", slug:"jaayaz", year:"2026", credit:"Music Producer", link:"https://open.spotify.com/album/5XSf0rHHmTn6Y849TQR6BD"},
+  {t:"Mai Qala", slug:"mai-qala", year:"2026", credit:"Music Producer", link:"https://open.spotify.com/album/1G6SSp3amuZJq2EiX75zox"},
+  {t:"Rakhna Jo Chaha", slug:"rakhna-jo-chaha", year:"2025", credit:"Music Producer", desc:"w/ Riya Goley", link:"https://open.spotify.com/album/0oR8fVM3fllHhycajj0FUX"},
+  {t:"Cutputli", slug:"cutputli", year:"2025", credit:"Composer, Music Producer, Mix Engineer", desc:"w/ Prabhanjan, DOST", link:"https://open.spotify.com/album/4m1UVbAbkp8slVp22aErGX"},
+  {t:"Take Me Back Home", slug:"take-me-back-home", year:"2025", credit:"Composer, Music Producer", desc:"w/ DOST", link:"https://open.spotify.com/track/5kttGIFqZPBFDqM7ph8Rik"},
+  {t:"Boonden", slug:"boonden", year:"2024", credit:"Music Producer", desc:"Varun Dagar", link:"https://music.apple.com/in/album/boonden/6789449682"},
+  {t:"Kyun Soya Jaye Na", slug:"kyun-soya-jaye-na", year:"2024", credit:"Music Producer, Mix Engineer", desc:"Prabhanjan × Riya Goley", link:"https://open.spotify.com/track/5Anc4EtMr2NjLvPgBHioQh"},
+  {t:"Halo", slug:"halo", year:"2023", credit:"Mix Engineer", link:"https://open.spotify.com/track/2gS2aJx9tLdol818n2fne0"},
+  {t:"Phir Dikhi Tu", slug:"phir-dikhi-tu", year:"2020", credit:"Music Producer", desc:"Avish · Artiste First", link:"https://www.youtube.com/watch?v=F3XaGUVyjoQ"},
+  {t:"Flight (Remix)", slug:"flight", year:"2018", credit:"Music Producer", desc:"Hans Zimmer", link:"https://soundcloud.com/zryaofdilli/flight-by-hans-zimmer-man-of"},
+  {t:"Deewani Mastani (Remix)", slug:"deewani-mastani", year:"2018", credit:"Music Producer", desc:"Bajirao Mastani", link:"https://soundcloud.com/zryaofdilli/deewani-mastani-bajirao"},
+  {t:"We Don't Talk Anymore (Remix)", slug:"we-dont-talk-anymore", year:"2018", credit:"Music Producer", desc:"Charlie Puth", link:"https://soundcloud.com/zryaofdilli/we-dont-talk-anymore-by"},
+  {t:"If I Had A Heart (Remix)", slug:"if-i-had-a-heart", year:"2018", credit:"Music Producer", desc:"Fever Ray", link:"https://soundcloud.com/zryaofdilli/if-i-had-a-heart-by-fever-ray"},
+  {t:"3 Dollars & a Quarter", slug:"3-dollars-and-a-quarter", year:"2017", credit:"Composer & Producer", link:"https://www.youtube.com/watch?v=FGDjin1QbLo"},
+  {t:"Synchronized", slug:"synchronized", year:"2016", credit:"Music Producer", desc:"Mr. & Mrs. Cactus", link:"https://soundcloud.com/zryaofdilli/mr-mrs-cactus-synchronized-galileo-remix"},
+  {t:"Free Fall", slug:"free-fall", year:"2015", credit:"Music Producer", desc:"The Quixotic", link:"https://soundcloud.com/thequixotic/freefall"},
+  {t:"HIGH", slug:"high", year:"2015", credit:"Composer & Producer", desc:"Callisto", link:"https://www.youtube.com/watch?v=UGhq-QyShGs"},
 ];
 
-/* WORK — commercial showreel (uses YouTube thumbnails as carousel imagery) */
+/* WORK — film / OTT / brand credits, newest first. video (id) -> hover video; audio (slug) -> hover cover. */
 const WORK = [
-  {t:"The Great Indian Family", desc:"Music Producer, BGM", year:"2023", credit:"YRF", id:"jxRgnlvep94"},
-  {t:"An Action Hero — Ghere", desc:"Music Production, Song", year:"2022", credit:"T-Series", id:"sEv3c58b3KQ"},
-  {t:"An Action Hero — Asli Action Chaalu", desc:"Theme Song", year:"2022", credit:"T-Series", id:"54KHR3Dx-P4"},
-  {t:"Looop Lapeta — Beqaraar", desc:"Music Production, Song", year:"2022", credit:"Zee Music", id:"sLK07viMibY"},
-  {t:"Ghar Waapsi — Shama", desc:"Song · Hotstar Specials", year:"2023", credit:"Sony Music", id:"JRORviry-yI"},
-  {t:"Suraj Pe Mangal Bhari", desc:"Audio Engineer & Producer, BGM", year:"2020", credit:"Zee Studios", id:"hs2MPHRkP9A"},
-  {t:"The Zoya Factor", desc:"Music Producer, BGM", year:"2019", credit:"Star Studios", id:"tz9TN7ixPW0"},
-  {t:"Bhram", desc:"Music Producer, BGM", year:"2019", credit:"ZEE5", id:"zhavQiEIvUc"},
-  {t:"vivo — Joy of Homecoming", desc:"Diwali brand film", year:"2023", credit:"vivo India", id:"ZKH2NYhihQA"},
-  {t:"Vicks Anthem — D'Cut", desc:"Ad jingle", year:"2023", credit:"Vicks", id:"5-w2gXS1NKA"},
-  {t:"Volkswagen Taigun — Cityscapes", desc:"Ad audio production", year:"2021", credit:"Volkswagen India", id:"RZFn8Du213w"},
-  {t:"Tanishq — Love Anthem", desc:"When It Rings True", year:"2023", credit:"Tanishq", id:"3xtoWn15Zt0"},
-  {t:"Malabar Gold — Brides of India", desc:"ft. Alia Bhatt & Anil Kapoor", year:"2023", credit:"Malabar Gold", id:"G4o-Y01r-bY"},
-  {t:"boAt — 50 Hour Music Challenge", desc:"IFP 2022 · Kati Patang", year:"2022", credit:"boAt", id:"EQvJBkaw01M"},
-  {t:"Capri Loans — Farz Nibhaatey Hain", desc:"MSME campaign", year:"2023", credit:"Capri Loans", id:"ipjwbMr4Ab0"},
-  {t:"JDU Campaign Song", desc:"Lok Sabha 2024", year:"2024", credit:"Janata Dal (United)", id:"g7wygLZEeUI"},
-  {t:"Ishara Brand Anthem", desc:"Channel anthem", year:"2020", credit:"EPIC", id:"sJg-TMomfZM"},
-  {t:"Ranjha — Kiara & Sidharth", desc:"Wedding film score", year:"2022", credit:"The Wedding Filmer", id:"tyBJioe8gOs"},
-  {t:"Waheguru — Deepika & Ranveer", desc:"Wedding film score", year:"2023", credit:"The Wedding Filmer", id:"F4dzcwT4h20"},
-  {t:"Tu Mila — TWF Originals", desc:"Original song", year:"2024", credit:"The Wedding Filmer", id:"G_ny4r9-WQs"},
-  {t:"Lakh Shukrane — Mahek & Jay", desc:"Wedding film score", year:"2024", credit:"The Wedding Filmer", id:"9iLYCwrv6eU"},
-  {t:"Guncha Koi", desc:"Contemporary cover", year:"2020", credit:"Umber Jafri", id:"-peiuSBwmKA"},
+  {t:"Raasta", slug:"raasta", year:"2026", credit:"Music Producer", desc:'From "Matka King"', link:"https://open.spotify.com/track/3AE5vwkv7aoqda3js5Wu8N"},
+  {t:"Garaariyan", slug:"garaariyan", year:"2026", credit:"Music Producer", desc:"Single", link:"https://open.spotify.com/track/7LwTWfTxOmtmq4cAVE0eKg"},
+  {t:"Kaise Bataye", year:"2026", credit:"Music Producer", desc:"Varun Dagar", id:"dBd0--cX09I"},
+  {t:"Panaah", slug:"panaah", year:"2025", credit:"Composer & Music Producer", desc:"TheM", link:"https://open.spotify.com/album/1wh9eBuOZCz20LrYwGfSA7"},
+  {t:"Lakh Shukrane", year:"2025", credit:"Composer & Music Producer", desc:"The Wedding Filmer", id:"9iLYCwrv6eU"},
+  {t:"Tu Mila", year:"2025", credit:"Composer & Music Producer", desc:"The Wedding Filmer", id:"G_ny4r9-WQs"},
+  {t:"JDU Campaign Song", year:"2024", credit:"Music Producer", desc:"Lok Sabha 2024", id:"g7wygLZEeUI"},
+  {t:"Joy of Homecoming", year:"2023", credit:"Music Producer", desc:"vivo India", id:"ZKH2NYhihQA"},
+  {t:"Waheguru", year:"2023", credit:"Music Producer", desc:"The Wedding Filmer", id:"F4dzcwT4h20"},
+  {t:"Love Anthem", year:"2023", credit:"Music Producer", desc:"Tanishq", id:"3xtoWn15Zt0"},
+  {t:"D'Cut — Vicks Anthem", year:"2023", credit:"Music Producer", desc:"Vicks", id:"5-w2gXS1NKA"},
+  {t:"Capri Loans", year:"2023", credit:"Music Producer", desc:"Farz Nibhaatey Hain", id:"ipjwbMr4Ab0"},
+  {t:"The Great Indian Family", year:"2023", credit:"Composer, Music Producer", desc:"YRF", id:"jxRgnlvep94"},
+  {t:"Sikhs & Greeks", year:"2023", credit:"Composer & Music Producer", desc:"The Wedding Filmer", id:"qOwctYqtmtw"},
+  {t:"Brides of India", year:"2023", credit:"Music Producer", desc:"Malabar Gold", id:"G4o-Y01r-bY"},
+  {t:"Ranjha", year:"2023", credit:"Music Producer", desc:"The Wedding Filmer", id:"tyBJioe8gOs"},
+  {t:"Ghere", year:"2022", credit:"Music Producer", desc:"An Action Hero · T-Series", id:"sEv3c58b3KQ"},
+  {t:"Asli Action Chaalu", year:"2022", credit:"Music Producer", desc:"An Action Hero · T-Series", id:"54KHR3Dx-P4"},
+  {t:"Teri Meri Kahaani", year:"2022", credit:"Music Producer", desc:"The Wedding Filmer", id:"ugZNMWgf4Kg"},
+  {t:"Jind Mahi", year:"2022", credit:"Music Producer", desc:"The Wedding Filmer", id:"t6OPpuxAvDU"},
+  {t:"Shama", year:"2022", credit:"Music Producer", desc:"Ghar Waapsi · Hotstar", id:"JRORviry-yI"},
+  {t:"Volkswagen Taigun", year:"2022", credit:"Ad Audio Production", desc:"Cityscapes", id:"RZFn8Du213w"},
+  {t:"Nachdi Phirey", year:"2022", credit:"Music Producer", desc:"The Wedding Filmer", id:"jh-wxrgHM1M"},
+  {t:"Beqaraar", year:"2022", credit:"Music Producer", desc:"Looop Lapeta · Zee", id:"sLK07viMibY"},
+  {t:"Mangalyam", year:"2021", credit:"Music Producer", desc:"The Wedding Filmer", id:"4Zs-VNHVmEQ"},
+  {t:"Guncha Koi", year:"2021", credit:"Music Producer", desc:"Umber Jafri", id:"-peiuSBwmKA"},
+  {t:"Faraar Kab Tak", year:"2021", credit:"Composer & Music Producer", desc:"EPIC", id:"lAn8XgwDpzc"},
+  {t:"Ishara Brand Anthem", year:"2021", credit:"Music Producer", desc:"EPIC", id:"sJg-TMomfZM"},
+  {t:"Suraj Pe Mangal Bhari", year:"2020", credit:"Audio Engineer & Producer", desc:"Zee Studios", id:"hs2MPHRkP9A"},
+  {t:"Bhram", year:"2019", credit:"Music Producer", desc:"ZEE5", id:"zhavQiEIvUc"},
+  {t:"The Zoya Factor", year:"2019", credit:"Music Producer", desc:"Star Studios", id:"tz9TN7ixPW0"},
 ];
 
 const YT = id => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&playsinline=1&rel=0`;
@@ -119,7 +136,9 @@ function renderCarousel(list, sel, wide){
 function renderList(list, sel){
   document.querySelector(sel).innerHTML = list.map(r=>{
     const href = r.link || (r.id ? WATCH(r.id) : '#');
-    return `<a class="row" href="${href}" target="_blank" rel="noopener"${r.id?` data-id="${r.id}"`:''}>
+    const cover = r.slug ? ` data-cover="${r.slug}"` : '';        // ART rows -> cover-art on hover
+    const vid = (!r.slug && r.id) ? ` data-id="${r.id}"` : '';     // WORK rows -> video on hover
+    return `<a class="row" href="${href}" target="_blank" rel="noopener"${cover}${vid}>
       <div><div class="rt">${r.t}</div>${r.desc?`<div class="rd">${r.desc}</div>`:''}</div>
       <div class="rmeta"><span class="yr">${r.year}</span><br>${r.credit}</div>
     </a>`;
@@ -133,13 +152,22 @@ function lazyImages(){
     img.onload = ()=>img.classList.add('loaded');
   });
 }
-function wireFloatingPreview(){
+function pvMove(pv,e){ const w=pv.offsetWidth; let x=e.clientX+34; if(x+w>innerWidth-20)x=e.clientX-w-34; pv.style.left=x+'px'; pv.style.top=e.clientY+'px'; }
+function wireFloatingPreview(){          // WORK list — video preview on hover
   const pv = document.getElementById('preview'); let curId=null;
-  const move = e => { const w=pv.offsetWidth; let x=e.clientX+34; if(x+w>innerWidth-20)x=e.clientX-w-34; pv.style.left=x+'px'; pv.style.top=e.clientY+'px'; };
   document.querySelectorAll('.row[data-id]').forEach(row=>{
     const id=row.dataset.id;
-    row.addEventListener('mouseenter',e=>{if(curId!==id){curId=id;pv.innerHTML=`<iframe src="${YT(id)}" allow="autoplay" allowfullscreen></iframe>`;}pv.classList.add('show');move(e);});
-    row.addEventListener('mousemove',move);
+    row.addEventListener('mouseenter',e=>{pv.classList.remove('cover');if(curId!==id){curId=id;pv.innerHTML=`<iframe src="${YT(id)}" allow="autoplay" allowfullscreen></iframe>`;}pv.classList.add('show');pvMove(pv,e);});
+    row.addEventListener('mousemove',e=>pvMove(pv,e));
+    row.addEventListener('mouseleave',()=>pv.classList.remove('show'));
+  });
+}
+function wireCoverPreview(){             // ART list — cover art on hover
+  const pv = document.getElementById('preview'); let cur=null;
+  document.querySelectorAll('.row[data-cover]').forEach(row=>{
+    const slug=row.dataset.cover;
+    row.addEventListener('mouseenter',e=>{if(cur!==slug){cur=slug;pv.innerHTML=`<img src="art/${slug}.jpg" alt="">`;}pv.classList.add('cover','show');pvMove(pv,e);});
+    row.addEventListener('mousemove',e=>pvMove(pv,e));
     row.addEventListener('mouseleave',()=>pv.classList.remove('show'));
   });
 }
@@ -193,95 +221,128 @@ function wireLoader(){
   let v=0; const t=setInterval(()=>{v+=Math.ceil((100-v)/6)+1;if(v>=100){v=100;clearInterval(t);setTimeout(()=>L.classList.add('done'),320);}n.textContent='Loading '+v+'%';},95);
 }
 
-/* ============ HOMEPAGE — 3D cover ring (and2es-style) ============
-   A focal cover in front; the rest ride a ring that recedes BEHIND it. The ring
-   tilts toward the cursor; dragging spins it (focal changes) with motion blur;
-   only the focal cover is in colour, the rest monochrome. */
+/* ============ HOMEPAGE — true 3D cover drum (and2es-style) ============
+   Each cover is sliced into vertical strips wrapped onto an invisible cylinder,
+   so it genuinely curves (top/bottom edges bow, sides compress, backs mirror).
+   The focus cover lives INSIDE the drum at its axis and counter-rotates to face
+   you, so the front arc passes in front of it and the back arc behind it. Drag
+   spins it; cursor leans it; nothing blurs. */
 function initField(){
   const stage = document.getElementById('field');
   if(!stage) return;
   const nv = document.getElementById('nowview');
-  const N = ART.length, TAU = Math.PI*2, STEP = TAU/N;
+  const N = ART.length, TAU = Math.PI*2, STEP = TAU/N, K = 8;    // K = strips per cover
 
-  const tiles = ART.map((a,i)=>{
-    const el = document.createElement('a');
-    el.className='rtile'; el.href=a.link; el.target='_blank'; el.rel='noopener'; el.dataset.i=i;
-    el.innerHTML = `<img src="art/${a.slug}.jpg" alt="${esc(a.t)}" draggable="false">`;
-    stage.appendChild(el);
-    return {el, a, base:i*STEP};
-  });
+  const band = document.createElement('div'); band.className='band3d'; stage.appendChild(band);
+  const covers = ART.map((a,i)=>({a, theta:i*STEP}));
 
-  let R, tileSize, cx, cy;
+  // focus cover — a child of the drum, at its centre axis, so it depth-sorts with the strips
+  const focalEl = document.createElement('a'); focalEl.className='bfocal'; focalEl.target='_blank'; focalEl.rel='noopener';
+  focalEl.innerHTML = `<img alt="" draggable="false">`;
+  focalEl.addEventListener('dragstart', e=>e.preventDefault());
+  band.appendChild(focalEl);
+  const focalImg = focalEl.querySelector('img');
+
+  let tileSize, focalSize, R, cx, cy;
+  function build(){
+    band.querySelectorAll('.bstrip').forEach(e=>e.remove());
+    const sw = tileSize/K, gamma = tileSize/R;             // cover's angular width on the drum
+    covers.forEach((c,ci)=>{
+      c.strips=[];
+      for(let s=0;s<K;s++){
+        const a = c.theta + ((s+0.5)/K - 0.5)*gamma;       // this strip's angle around the drum
+        const el = document.createElement('div'); el.className='bstrip'; el.dataset.i=ci;
+        el.style.width=(sw+1)+'px'; el.style.height=tileSize+'px';
+        el.style.marginLeft=(-sw/2)+'px'; el.style.marginTop=(-tileSize/2)+'px';
+        el.style.backgroundImage=`url(art/${c.a.slug}.jpg)`;
+        el.style.backgroundSize=`${tileSize}px ${tileSize}px`;
+        el.style.backgroundPosition=`${-s*sw}px 0`;
+        el.style.transform=`rotateY(${a}rad) translateZ(${R}px)`;
+        band.appendChild(el); c.strips.push(el);
+      }
+    });
+  }
   function layout(){
-    R = Math.max(230, Math.min(560, innerWidth*0.33));
-    tileSize = Math.max(150, Math.min(340, innerWidth*0.20));
-    cx = innerWidth/2; cy = innerHeight*0.48;
-    tiles.forEach(t=>{ t.el.style.width=tileSize+'px'; t.el.style.height=tileSize+'px'; });
+    tileSize  = Math.max(58, Math.min(109, innerWidth*0.0595));                       // ring covers (15% smaller again)
+    focalSize = Math.max(264, Math.min(506, Math.min(innerWidth*0.2875, innerHeight*0.46))); // focus cover 15% bigger
+    R = Math.min(Math.max(tileSize*N/(TAU*0.46), innerWidth*0.27), innerWidth*0.40);   // drum radius (capped)
+    cx = innerWidth/2; cy = innerHeight*0.49;
+    stage.style.perspective = Math.round(R*2.2)+'px';
+    band.style.left = cx+'px'; band.style.top = cy+'px';
+    build();
+    focalEl.style.width=focalSize+'px'; focalEl.style.height=focalSize+'px';
+    focalEl.style.marginLeft=(-focalSize/2)+'px'; focalEl.style.marginTop=(-focalSize/2)+'px';
   }
 
-  let spin=0, vSpin=0, down=false, lx=0, lastDx=0, moved=0, raf=null, snapTo=null;
-  let tx=0, ty=0, ttx=0, tty=0;         // ring tilt (current / target)
-  const MAXTILT = 0.36, lastFocal = {i:-1};
+  const BASE_TILT = 0;                         // no tilt at rest (cursor leans it)
+  let spin=0, vSpin=0, vel=0, down=false, lx=0, moved=0, raf=null, snapTo=null;
+  let tilt=BASE_TILT, roll=0, tTilt=BASE_TILT, tRoll=0;
+  const lastFocal={i:-1};
 
   function frame(){
     if(!down){
-      spin += vSpin; vSpin *= 0.94; if(Math.abs(vSpin)<0.00004) vSpin=0;
+      spin += vSpin; vSpin *= 0.95; if(Math.abs(vSpin)<0.00004) vSpin=0;
       if(snapTo!==null){ spin += (snapTo-spin)*0.12; if(Math.abs(snapTo-spin)<0.0008){ spin=snapTo; snapTo=null; } }
-      else if(vSpin===0){ const t=Math.round(spin/STEP)*STEP; spin += (t-spin)*0.12; if(Math.abs(t-spin)<0.0008) spin=t; } // rest-snap
+      else if(vSpin===0){ const t=Math.round(spin/STEP)*STEP; spin += (t-spin)*0.14; if(Math.abs(t-spin)<0.0008) spin=t; }
     }
-    tx += (ttx-tx)*0.07; ty += (tty-ty)*0.07;
-    const blur = Math.min(18, Math.abs(vSpin)*2400 + (down?Math.abs(lastDx)*0.5:0));
+    tilt += (tTilt-tilt)*0.08; roll += (tRoll-roll)*0.08;
+    band.style.transform = `rotateX(${tilt}rad) rotateZ(${roll}rad) rotateY(${spin}rad)`;         // spin the drum
+    focalEl.style.transform = `rotateY(${-spin}rad) rotateZ(${-roll}rad) rotateX(${-tilt}rad)`;   // keep focus facing viewer at the axis
 
-    let focal=0, best=-2;
-    const proj = tiles.map(t=>{
-      const ang=t.base+spin;
-      let px=Math.sin(ang)*R, py=0, pz=Math.cos(ang)*R;
-      let y1=py*Math.cos(tx)-pz*Math.sin(tx), z1=py*Math.sin(tx)+pz*Math.cos(tx); py=y1; pz=z1; // tilt X (cursor Y)
-      let x2=px*Math.cos(ty)-py*Math.sin(ty), y2=px*Math.sin(ty)+py*Math.cos(ty); px=x2; py=y2; // tilt Z (cursor X)
-      return {px,py,pz,depth:pz/R};
-    });
-    proj.forEach((p,idx)=>{ if(p.depth>best){best=p.depth;focal=idx;} });
-
-    tiles.forEach((t,idx)=>{
-      const p=proj[idx];
-      const s = 0.6 + (p.depth+1)/2*0.62;
-      t.el.style.transform = `translate3d(${cx+p.px}px,${cy+p.py}px,0) translate(-50%,-50%) scale(${s})`;
-      t.el.style.zIndex = String(1000+Math.round(p.pz));
-      const isF = idx===focal;
-      t.el.classList.toggle('focal', isF);
-      t.el.style.filter = isF
-        ? `blur(${Math.min(blur,3).toFixed(1)}px)`
-        : `grayscale(1) brightness(${(0.5+(p.depth+1)/2*0.35).toFixed(2)}) blur(${blur.toFixed(1)}px)`;
-    });
-
-    if(nv && focal!==lastFocal.i){ lastFocal.i=focal; nv.querySelector('.nv-title').textContent=tiles[focal].a.t; nv.querySelector('.nv-cta').textContent='Listen →'; }
-
-    const busy = down || vSpin || snapTo!==null || Math.abs(ttx-tx)>0.001 || Math.abs(tty-ty)>0.001 || Math.abs(Math.round(spin/STEP)*STEP - spin)>0.0008;
+    let focal=0, best=-2;                       // front cover = the one facing the viewer
+    for(let i=0;i<N;i++){ const c=Math.cos(covers[i].theta+spin); if(c>best){best=c;focal=i;} }
+    if(focal!==lastFocal.i){
+      lastFocal.i=focal; const a=covers[focal].a;
+      focalImg.src=`art/${a.slug}.jpg`; focalEl.href=a.link;
+      if(nv){ nv.querySelector('.nv-title').textContent=a.t;
+              const cta=nv.querySelector('.nv-cta'); cta.textContent='Listen →'; cta.href=a.link; }
+    }
+    const busy = down || vSpin || snapTo!==null || Math.abs(tTilt-tilt)>0.001 || Math.abs(tRoll-roll)>0.001 || Math.abs(Math.round(spin/STEP)*STEP-spin)>0.0008;
     if(busy){ raf=requestAnimationFrame(frame); } else { raf=null; }
   }
   const kick=()=>{ if(!raf) raf=requestAnimationFrame(frame); };
 
-  stage.addEventListener('pointerdown', e=>{ down=true; moved=0; lx=e.clientX; vSpin=0; snapTo=null; lastDx=0; stage.setPointerCapture(e.pointerId); stage.classList.add('grabbing'); kick(); });
+  let downCover=-1, downFocal=false;
+  stage.addEventListener('pointerdown', e=>{ down=true; moved=0; lx=e.clientX; vSpin=0; vel=0; snapTo=null;
+    const st=e.target.closest('.bstrip'); downCover = st?+st.dataset.i:-1; downFocal=!!e.target.closest('.bfocal');
+    stage.setPointerCapture(e.pointerId); stage.classList.add('grabbing'); kick(); });
   stage.addEventListener('pointermove', e=>{
-    ttx = (e.clientY/innerHeight - .5)*MAXTILT*2;   // ring leans toward cursor (vertical)
-    tty = (e.clientX/innerWidth  - .5)*MAXTILT;     // subtle roll (horizontal)
-    if(down){ const dx=e.clientX-lx; lx=e.clientX; lastDx=dx; moved+=Math.abs(dx); const d=dx*0.006; spin+=d; vSpin=d; }
+    tTilt = BASE_TILT + (e.clientY/innerHeight-.5)*0.30;   // lean the drum with cursor (vertical)
+    tRoll = (e.clientX/innerWidth-.5)*0.16;                // slight roll with cursor (horizontal)
+    if(down){ const dx=e.clientX-lx; lx=e.clientX; moved+=Math.abs(dx); const d=dx*0.007; spin+=d; vel=vel*0.6+d*0.4; }
     kick();
   });
-  const up=()=>{ down=false; stage.classList.remove('grabbing'); kick(); };
+  const up=()=>{ if(!down) return; down=false; stage.classList.remove('grabbing');
+    if(moved<6){                                        // a tap
+      vSpin=0;
+      if(downCover>=0){ let target=-covers[downCover].theta; target+=Math.round((spin-target)/TAU)*TAU; snapTo=target; }
+      else if(downFocal && focalEl.href){ window.open(focalEl.href,'_blank','noopener'); }
+    } else {
+      vSpin=Math.max(-0.08,Math.min(0.08,vel));          // a throw carries momentum
+    }
+    kick();
+  };
   stage.addEventListener('pointerup',up); stage.addEventListener('pointercancel',up);
-  stage.addEventListener('pointerleave', ()=>{ ttx=tty=0; kick(); });
-  stage.addEventListener('click', e=>{
-    const tileEl = e.target.closest('.rtile');
-    if(moved>6){ e.preventDefault(); return; }        // was a drag
-    if(!tileEl) return;
-    if(!tileEl.classList.contains('focal')){          // select a ring cover -> spin it to front
-      e.preventDefault();
-      const base = tiles[+tileEl.dataset.i].base;
-      let target = -base; target += Math.round((spin-target)/TAU)*TAU;
-      snapTo = target; kick();
-    } // clicking the focal follows its link
-  }, true);
+  stage.addEventListener('pointerleave', ()=>{ tTilt=BASE_TILT; tRoll=0; kick(); });
+  stage.addEventListener('click', e=>e.preventDefault(), true);   // links handled on tap
+
+  // wheel/scroll rotates the drum: a fast flick spins it, a slow scroll steps cover-by-cover
+  let wAcc=0;
+  stage.addEventListener('wheel', e=>{
+    e.preventDefault();
+    const dy=e.deltaY; if(!dy) return;
+    const mag=Math.abs(dy);
+    if(mag>40){                                             // fast flick -> free spin with momentum
+      snapTo=null; vSpin += -Math.sign(dy)*Math.min(0.03, mag*0.00025); vSpin=Math.max(-0.13,Math.min(0.13,vSpin)); wAcc=0;
+    } else {                                                // slow -> one cover per ~40px of scroll
+      vSpin=0; wAcc += dy;
+      while(Math.abs(wAcc)>=40){ const s=Math.sign(wAcc); const from=(snapTo!==null?snapTo:Math.round(spin/STEP)*STEP); snapTo=from - s*STEP; wAcc-=s*40; }
+    }
+    kick();
+  }, {passive:false});
+  // the wheel spins the drum, so descending the page is a button
+  const eb=document.getElementById('ethosbtn');
+  if(eb) eb.addEventListener('click',()=>{ const s=document.querySelector('.statement'); (s||document.body).scrollIntoView({behavior:'smooth',block:'start'}); });
 
   let rt; addEventListener('resize', ()=>{ clearTimeout(rt); rt=setTimeout(()=>{layout();kick();},200); });
   layout(); frame();
@@ -291,9 +352,9 @@ function initField(){
 document.addEventListener('DOMContentLoaded', ()=>{
   injectChrome();
   const page = document.body.dataset.page || 'home';
-  if(page==='art'){ renderCarousel(ART,'#car',false); renderList(ART,'#list'); }
-  if(page==='work'){ renderCarousel(WORK,'#car',true); renderList(WORK,'#list'); }
+  if(page==='art'){ renderList(ART,'#list'); }
+  if(page==='work'){ renderList(WORK,'#list'); }
   if(page==='home'){ initField(); }
-  lazyImages(); wireInlinePlay(); wireFloatingPreview(); wireCarousel();
+  lazyImages(); wireFloatingPreview(); wireCoverPreview();
   wireDrawers(); wireReveal(); wireLoader();
 });
