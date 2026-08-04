@@ -230,8 +230,22 @@ function wireDrawers(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
 }
 function wireReveal(){
-  const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+  // scroll-based reveal — reliable for very tall elements (a huge list can never
+  // reach an IntersectionObserver ratio threshold) and doesn't stall if the tab
+  // is backgrounded. Reveals anything whose top has entered the lower viewport.
+  let items=[...document.querySelectorAll('.reveal')];
+  const check=()=>{
+    const h=innerHeight;
+    items=items.filter(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top < h*0.9 && r.bottom > 0){ el.classList.add('in'); return false; }
+      return true;
+    });
+    if(!items.length){ removeEventListener('scroll',check); removeEventListener('resize',check); }
+  };
+  addEventListener('scroll',check,{passive:true});
+  addEventListener('resize',check);
+  check(); setTimeout(check,250);
 }
 function wireLoader(){
   const n=document.getElementById('lpn'), L=document.getElementById('loader');
