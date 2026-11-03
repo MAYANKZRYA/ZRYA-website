@@ -3,8 +3,8 @@ const SP = "https://open.spotify.com/artist/3rXwnEWqZbpPVPL1mAKot7";
 
 /* ART — ZRYA's own releases, newest first. cover -> art/<slug>.jpg ; link = the release. */
 const ART = [
-  {t:"ARIDHU", slug:"aridhu", year:"2026", credit:"Music Producer", desc:"w/ Paul Shizu", link:"https://open.spotify.com/track/17lYpmV1f0vIGvHxGMn6FC"},
-  {t:"Jaago Pyaare", slug:"jaago-pyaare", year:"2026", credit:"Music Producer", desc:"w/ Arul Seth", link:"https://open.spotify.com/track/0TFY0WRZYtQTeclROfB2P6"},
+  {t:"ARIDHU", slug:"aridhu", year:"2026", credit:"Composer, Music Producer, Mix Engineer", desc:"w/ Paul Shizu", link:"https://open.spotify.com/track/17lYpmV1f0vIGvHxGMn6FC"},
+  {t:"Jaago Pyaare", slug:"jaago-pyaare", year:"2026", credit:"Composer, Music Producer, Mix Engineer", desc:"w/ Arul Seth", link:"https://open.spotify.com/track/0TFY0WRZYtQTeclROfB2P6"},
   {t:"Paheli", slug:"paheli", year:"2026", credit:"Composer, Music Producer, Mix Engineer", link:"https://open.spotify.com/album/5EPJ6k9PVOVD7M5Y2gldZw"},
   {t:"Gehna", slug:"gehna", year:"2026", credit:"Composer, Music Producer, Mix Engineer", link:"https://open.spotify.com/album/74QAHkEmX1PlmNI0erVB4Q"},
   {t:"Udd Jaa", slug:"udd-jaa", year:"2026", credit:"Composer, Music Producer, Mix Engineer", link:"https://open.spotify.com/album/50D3Ny54bQ4CKPU95X9mkS"},
